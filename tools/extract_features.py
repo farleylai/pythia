@@ -36,6 +36,8 @@ import csv
 import timeit
 import json
 
+import torch
+sys.path.insert(0, torch.__path__[0])
 
 from detectron.utils.io import cache_url
 import detectron.utils.c2 as c2_utils
@@ -127,7 +129,7 @@ def parse_args():
     )
     parser.add_argument(
         '--max_bboxes',
-        help=" min number of bboxes",
+        help=" max number of bboxes",
         type=int,
         default=100
     )
