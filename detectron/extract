@@ -10,7 +10,7 @@ SCRIPT=$PYTHIA/tools/extract_features_flickr30k.py
 
 INPUT_DIR=$1
 OUTPUT_DIR=$2
-OUTPUT_DIR=${OUTPUT_DIR:=features/}
+OUTPUT_DIR=${OUTPUT_DIR:=resnext101-fpn-rpn-100-2048/}
 
 export PYTHONPATH=$DETECTRON:$PYTHONPATH
 
