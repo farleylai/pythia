@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wget https://s3-us-west-1.amazonaws.com/pythia-vqa/detectron/FAST_RCNN_MLP_DIM2048_FPN_DIM512.pkl
+wget https://s3-us-west-1.amazonaws.com/pythia-vqa/detectron/e2e_faster_rcnn_X-101-64x4d-FPN_1x_MLP_2048_FPN_512.yaml

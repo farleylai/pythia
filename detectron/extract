@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+PYTHIA=$DIR/..
+DETECTRON=${DETECTRON:=$DIR/../../Detectron}
+
+CFG=$DIR/e2e_faster_rcnn_X-101-64x4d-FPN_1x_MLP_2048_FPN_512.yaml
+WTS=$DIR/FAST_RCNN_MLP_DIM2048_FPN_DIM512.pkl
+SCRIPT=$PYTHIA/tools/extract_features_flickr30k.py
+
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+OUTPUT_DIR=${OUTPUT_DIR:=features/}
+
+export PYTHONPATH=$DETECTRON:$PYTHONPATH
+
+python $SCRIPT --cfg $CFG \
+--wts $WTS \
+--min_bboxes 100 --max_bboxes 100 \
+--feat_name gpu_0/fc6 \
+--meta \
+--output_dir $OUTPUT_DIR \
+$INPUT_DIR
